@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CNC 라우터 + CAM 공동구매</title>
+  <meta name="description" content="3축 CNC 라우터 CNC 라우터와 Autodesk Fusion 정식 라이선스를 결합한 6명 한정 공동구매 패키지 안내." />
+  <style>
+    :root{
+      --nw-black:#0a0b0b;
+      --nw-black-2:#121414;
+      --nw-black-3:#1a1d1d;
+      --nw-white:#ffffff;
+      --nw-paper:#f4f3ef;
+      --nw-paper-2:#e9e8e3;
+      --nw-line:#d1d0ca;
+      --nw-gray:#6d7172;
+      --nw-gray-light:#aeb1b1;
+      --nw-orange:#df4c0b;
+      --nw-orange-2:#ff5b16;
+      --nw-gold:#e2ad43;
+      --nw-max:1460px;
+      --nw-pad:clamp(20px,4.8vw,78px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      overflow-x:hidden;
+      background:var(--nw-paper);
+      color:var(--nw-black);
+      font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+      word-break:keep-all;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+
+    /* 식스샵 블로그 제목/날짜 영역만 제한적으로 숨김 */
+    .post-header,.blog-header,.article-header,
+    .blog-post-header,.post-title-wrap,.title-wrap,
+    .blog-post-detail__header,.s-blog-post-detail__header,
+    .post-title,.blog-post-title,.article-title,
+    .post-date,.blog-post-date,.article-date{
+      display:none!important;
+    }
+    .post-content,.ck-content,.blog-post-container,.entry-content,
+    .section-content,.widget-html,.html-widget{
+      margin:0!important;
+      padding:0!important;
+      max-width:none!important;
+    }
+
+    .nw-gb{
+      width:100vw;
+      max-width:100vw;
+      margin-left:calc(50% - 50vw);
+      background:var(--nw-paper);
+      overflow:hidden;
+    }
+    .nw-wrap{
+      width:min(var(--nw-max),100%);
+      margin:0 auto;
+      padding-inline:var(--nw-pad);
+    }
+    .nw-section{
+      position:relative;
+      padding:clamp(82px,9vw,148px) 0;
+    }
+    .nw-eyebrow{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:20px;
+      color:var(--nw-orange);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.18em;
+    }
+    .nw-eyebrow::before{
+      content:"";
+      width:36px;
+      height:3px;
+      background:currentColor;
+    }
+    .nw-head{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+      gap:54px;
+      align-items:end;
+      margin-bottom:54px;
+    }
+    .nw-head h2{
+      margin:0;
+      font-size:clamp(42px,5.8vw,86px);
+      line-height:.96;
+      letter-spacing:-.065em;
+      font-weight:950;
+    }
+    .nw-head p{
+      margin:0;
+      color:var(--nw-gray);
+      font-size:16px;
+      line-height:1.85;
+    }
+    .nw-dark .nw-head p{color:#aeb1b1}
+    .nw-index{
+      color:var(--nw-orange);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.14em;
+    }
+
+    /* 이미지 슬롯 */
+    .nw-img{
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.05),transparent 45%),
+        repeating-linear-gradient(135deg,#1b1e1f 0 18px,#181a1b 18px 36px);
+    }
+    .nw-img::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background-image:var(--nw-image,none);
+      background-size:cover;
+      background-position:center;
+      transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s ease;
+    }
+    .nw-img:hover::before{transform:scale(1.035)}
+    .nw-img::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(145deg,transparent 55%,rgba(223,76,11,.2));
+    }
+    .nw-placeholder{
+      position:absolute;
+      left:50%;top:50%;
+      transform:translate(-50%,-50%);
+      z-index:4;
+      width:max-content;
+      max-width:84%;
+      padding:11px 14px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(0,0,0,.5);
+      color:rgba(255,255,255,.86);
+      font-size:11px;
+      font-weight:700;
+      line-height:1.5;
+      letter-spacing:.06em;
+      text-align:center;
+      backdrop-filter:blur(4px);
+    }
+    .nw-img.has-image .nw-placeholder{display:none}
+
+    /* 01 PACKAGE */
+    .nw-package{
+      background:var(--nw-paper);
+    }
+    .nw-package::before{
+      content:"PACKAGE";
+      position:absolute;
+      right:-1vw;
+      top:2%;
+      color:rgba(0,0,0,.026);
+      font-size:clamp(120px,18vw,290px);
+      line-height:.8;
+      font-weight:950;
+      letter-spacing:-.08em;
+      pointer-events:none;
+    }
+    .nw-package-layout{
+      display:grid;
+      grid-template-columns:minmax(330px,.78fr) minmax(0,1.22fr);
+      border-top:3px solid var(--nw-black);
+      border-bottom:3px solid var(--nw-black);
+      background:var(--nw-white);
+    }
+    .nw-package-intro{
+      position:relative;
+      padding:clamp(34px,4vw,62px);
+      background:var(--nw-black);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:660px;
+      overflow:hidden;
+    }
+    .nw-package-intro::after{
+      content:"06";
+      position:absolute;
+      right:-12px;
+      bottom:-42px;
+      color:rgba(255,255,255,.045);
+      font-size:220px;
+      line-height:.8;
+      font-weight:950;
+      letter-spacing:-.1em;
+    }
+    .nw-package-limit{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:max-content;
+      padding:10px 12px;
+      background:var(--nw-orange);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.08em;
+    }
+    .nw-package-title{
+      margin:28px 0 0;
+      max-width:450px;
+      font-size:clamp(38px,4.4vw,66px);
+      line-height:1.02;
+      letter-spacing:-.06em;
+      font-weight:950;
+    }
+    .nw-package-copy{
+      position:relative;
+      z-index:2;
+      margin-top:auto;
+      padding-top:38px;
+    }
+    .nw-package-copy p{
+      margin:0 0 25px;
+      color:#b5b8b8;
+      font-size:14px;
+      line-height:1.8;
+    }
+    .nw-price-label{
+      color:var(--nw-gold);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.12em;
+    }
+    .nw-price{
+      margin-top:8px;
+      color:var(--nw-gold);
+      font-size:clamp(66px,7vw,108px);
+      line-height:.9;
+      font-weight:950;
+      letter-spacing:-.075em;
+    }
+    .nw-price span{
+      margin-left:7px;
+      font-size:.28em;
+      letter-spacing:-.03em;
+    }
+    .nw-price-note{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.16);
+      color:#a9acac;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .nw-product-side{
+      display:grid;
+      grid-template-rows:minmax(330px,1.1fr) minmax(260px,.9fr);
+    }
+    .nw-product-main{
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) 72px minmax(0,.92fr);
+      border-bottom:1px solid var(--nw-line);
+    }
+    .nw-product-card{
+      min-width:0;
+      display:grid;
+      grid-template-rows:1fr auto;
+    }
+    .nw-product-card + .nw-product-card{border-left:1px solid var(--nw-line)}
+    .nw-product-img{min-height:330px}
+    .nw-product-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:end;
+      padding:24px 26px;
+      border-top:1px solid var(--nw-line);
+      background:#fff;
+    }
+    .nw-product-meta small{
+      display:block;
+      margin-bottom:7px;
+      color:var(--nw-orange);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.14em;
+    }
+    .nw-product-meta strong{
+      display:block;
+      font-size:clamp(20px,2.2vw,32px);
+      letter-spacing:-.045em;
+    }
+    .nw-product-meta span{
+      color:var(--nw-gray);
+      font-size:11px;
+      line-height:1.55;
+      text-align:right;
+    }
+    .nw-plus{
+      position:relative;
+      display:grid;
+      place-items:center;
+      background:var(--nw-paper-2);
+      border-left:1px solid var(--nw-line);
+      border-right:1px solid var(--nw-line);
+    }
+    .nw-plus::before,.nw-plus::after{
+      content:"";
+      position:absolute;
+      background:var(--nw-black);
+    }
+    .nw-plus::before{width:28px;height:2px}
+    .nw-plus::after{width:2px;height:28px}
+
+    .nw-package-benefits{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      background:var(--nw-paper-2);
+    }
+    .nw-benefit{
+      min-height:190px;
+      padding:27px 24px;
+      border-right:1px solid var(--nw-line);
+      border-bottom:1px solid var(--nw-line);
+      background:#f5f4f0;
+      position:relative;
+      transition:background .28s ease,color .28s ease;
+    }
+    .nw-benefit:nth-child(3n){border-right:0}
+    .nw-benefit:nth-child(n+4){border-bottom:0}
+    .nw-benefit:hover{background:var(--nw-black);color:#fff}
+    .nw-benefit .num{
+      color:var(--nw-orange);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.14em;
+    }
+    .nw-benefit h3{
+      margin:35px 0 10px;
+      font-size:20px;
+      line-height:1.25;
+      letter-spacing:-.04em;
+    }
+    .nw-benefit p{
+      margin:0;
+      color:var(--nw-gray);
+      font-size:13px;
+      line-height:1.65;
+      transition:color .28s ease;
+    }
+    .nw-benefit:hover p{color:#b8bbbb}
+    .nw-benefit::after{
+      content:"↘";
+      position:absolute;
+      top:23px;
+      right:22px;
+      color:var(--nw-orange);
+      font-size:22px;
+    }
+    .nw-package-alert{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:24px;
+      align-items:center;
+      margin-top:26px;
+      padding:20px 22px;
+      border-left:5px solid var(--nw-orange);
+      background:#e6e5e0;
+      color:#474b4c;
+      font-size:13px;
+      line-height:1.7;
+    }
+    .nw-package-alert b{color:var(--nw-black);font-size:15px}
+
+    /* 02 MACHINE */
+    .nw-machine{
+      background:var(--nw-white);
+    }
+    .nw-machine-stage{
+      display:grid;
+      grid-template-columns:minmax(330px,.72fr) minmax(0,1.28fr);
+      min-height:690px;
+      border-top:2px solid var(--nw-black);
+      border-bottom:2px solid var(--nw-black);
+    }
+    .nw-machine-copy{
+      padding:clamp(34px,4vw,58px);
+      background:var(--nw-black);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .nw-machine-copy h3{
+      margin:16px 0 22px;
+      font-size:clamp(44px,5vw,78px);
+      line-height:.94;
+      letter-spacing:-.065em;
+    }
+    .nw-machine-copy p{
+      margin:0;
+      color:#aeb1b1;
+      font-size:14px;
+      line-height:1.85;
+    }
+    .nw-machine-points{
+      margin-top:40px;
+      border-top:1px solid rgba(255,255,255,.18);
+    }
+    .nw-machine-point{
+      display:grid;
+      grid-template-columns:54px 1fr;
+      padding:18px 0;
+      border-bottom:1px solid rgba(255,255,255,.14);
+    }
+    .nw-machine-point span{
+      color:var(--nw-orange-2);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+    }
+    .nw-machine-point b{
+      display:block;
+      margin-bottom:5px;
+      font-size:15px;
+    }
+    .nw-machine-point p{
+      color:#999d9d;
+      font-size:12px;
+      line-height:1.6;
+    }
+    .nw-machine-main{
+      min-height:690px;
+    }
+    .nw-machine-stamp{
+      position:absolute;
+      right:28px;
+      top:28px;
+      z-index:4;
+      width:118px;
+      height:118px;
+      display:grid;
+      place-items:center;
+      border:2px solid var(--nw-gold);
+      color:var(--nw-gold);
+      font-size:11px;
+      line-height:1.5;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-align:center;
+      transform:rotate(3deg);
+      background:rgba(0,0,0,.5);
+    }
+    .nw-machine-caption{
+      position:absolute;
+      left:28px;
+      bottom:26px;
+      z-index:4;
+      color:#fff;
+    }
+    .nw-machine-caption strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:28px;
+      letter-spacing:-.045em;
+    }
+    .nw-machine-caption span{font-size:12px;color:#d0d2d2}
+
+    .nw-machine-info{
+      display:grid;
+      grid-template-columns:minmax(0,.92fr) minmax(420px,1.08fr);
+      gap:60px;
+      margin-top:64px;
+      align-items:start;
+    }
+    .nw-spec-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      padding-bottom:16px;
+      border-bottom:3px solid var(--nw-black);
+    }
+    .nw-spec-head h3{margin:0;font-size:28px;letter-spacing:-.045em}
+    .nw-spec-head span{color:var(--nw-orange);font-size:10px;font-weight:900;letter-spacing:.14em}
+    .nw-spec-table{margin:0}
+    .nw-spec-row{
+      display:grid;
+      grid-template-columns:165px 1fr;
+      border-bottom:1px solid var(--nw-line);
+    }
+    .nw-spec-row dt,.nw-spec-row dd{margin:0;padding:16px 15px}
+    .nw-spec-row dt{
+      background:#efeee9;
+      border-right:1px solid var(--nw-line);
+      color:#55595a;
+      font-size:12px;
+      font-weight:700;
+    }
+    .nw-spec-row dd{font-size:13px;font-weight:700}
+
+    .nw-detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .nw-detail-card{
+      min-height:240px;
+      border:1px solid var(--nw-line);
+      position:relative;
+      overflow:hidden;
+    }
+    .nw-detail-card:first-child{grid-column:1/-1;min-height:330px}
+    .nw-detail-label{
+      position:absolute;
+      left:0;
+      bottom:0;
+      z-index:4;
+      padding:14px 16px;
+      background:var(--nw-black);
+      color:#fff;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+
+    .nw-applications{
+      margin-top:66px;
+    }
+    .nw-subhead{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+      margin-bottom:24px;
+      padding-bottom:16px;
+      border-bottom:2px solid var(--nw-black);
+    }
+    .nw-subhead h3{margin:0;font-size:32px;letter-spacing:-.05em}
+    .nw-subhead p{margin:0;color:var(--nw-gray);font-size:12px;line-height:1.6;text-align:right}
+    .nw-app-grid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      border-left:1px solid var(--nw-line);
+      border-top:1px solid var(--nw-line);
+    }
+    .nw-app-item{
+      min-height:245px;
+      border-right:1px solid var(--nw-line);
+      border-bottom:1px solid var(--nw-line);
+      position:relative;
+      overflow:hidden;
+    }
+    .nw-app-item .nw-app-name{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:4;
+      padding:15px 16px;
+      background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.08));
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    /* 03 FUSION */
+    .nw-fusion{
+      background:var(--nw-black);
+      color:#fff;
+      overflow:hidden;
+    }
+    .nw-fusion::before{
+      content:"FUSION";
+      position:absolute;
+      left:-2vw;
+      bottom:-3%;
+      color:rgba(255,255,255,.028);
+      font-size:clamp(150px,21vw,340px);
+      line-height:.76;
+      font-weight:950;
+      letter-spacing:-.09em;
+    }
+    .nw-fusion .nw-head p{color:#aeb1b1}
+    .nw-fusion-layout{
+      display:grid;
+      grid-template-columns:minmax(420px,1.15fr) minmax(340px,.85fr);
+      min-height:690px;
+      border:1px solid rgba(255,255,255,.16);
+      background:#101212;
+    }
+    .nw-fusion-main{min-height:690px}
+    .nw-fusion-main::after{
+      background:linear-gradient(to top,rgba(0,0,0,.82),transparent 52%);
+    }
+    .nw-fusion-screen-copy{
+      position:absolute;
+      left:30px;
+      right:30px;
+      bottom:27px;
+      z-index:4;
+    }
+    .nw-fusion-screen-copy span{
+      display:block;
+      margin-bottom:9px;
+      color:var(--nw-orange-2);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.13em;
+    }
+    .nw-fusion-screen-copy strong{
+      display:block;
+      font-size:clamp(27px,3vw,44px);
+      line-height:1.08;
+      letter-spacing:-.05em;
+    }
+    .nw-fusion-copy{
+      padding:clamp(34px,4.5vw,66px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .nw-fusion-copy h3{
+      margin:15px 0 22px;
+      font-size:clamp(40px,4.6vw,68px);
+      line-height:.98;
+      letter-spacing:-.06em;
+    }
+    .nw-fusion-copy>p{
+      margin:0;
+      color:#aeb1b1;
+      font-size:14px;
+      line-height:1.85;
+    }
+    .nw-fusion-summary{
+      margin-top:35px;
+      border-top:2px solid #fff;
+    }
+    .nw-fusion-row{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:20px;
+      padding:16px 0;
+      border-bottom:1px solid rgba(255,255,255,.15);
+    }
+    .nw-fusion-row b{font-size:13px}
+    .nw-fusion-row span{color:#9da1a1;font-size:12px;line-height:1.6}
+
+    .nw-fusion-features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      margin-top:64px;
+      border-top:2px solid #fff;
+      border-bottom:2px solid #fff;
+    }
+    .nw-fusion-feature{
+      min-height:310px;
+      padding:28px 25px;
+      border-right:1px solid rgba(255,255,255,.15);
+      position:relative;
+      transition:background .28s ease,color .28s ease;
+    }
+    .nw-fusion-feature:last-child{border-right:0}
+    .nw-fusion-feature:hover{background:var(--nw-orange)}
+    .nw-fusion-feature .num{color:var(--nw-orange-2);font-size:11px;font-weight:900;letter-spacing:.13em}
+    .nw-fusion-feature:hover .num{color:#fff}
+    .nw-fusion-feature h4{
+      margin:52px 0 15px;
+      font-size:24px;
+      letter-spacing:-.045em;
+    }
+    .nw-fusion-feature p{
+      margin:0;
+      color:#aeb1b1;
+      font-size:12px;
+      line-height:1.75;
+    }
+    .nw-fusion-feature:hover p{color:#fff}
+    .nw-fusion-feature::after{
+      content:"+";
+      position:absolute;
+      right:24px;
+      top:21px;
+      color:var(--nw-orange-2);
+      font-size:24px;
+    }
+    .nw-fusion-feature:hover::after{color:#fff}
+
+    .nw-wood-fit{
+      display:grid;
+      grid-template-columns:minmax(300px,.64fr) minmax(0,1.36fr);
+      margin-top:66px;
+      background:#fff;
+      color:var(--nw-black);
+    }
+    .nw-wood-title{
+      padding:38px 34px;
+      background:var(--nw-orange);
+      color:#fff;
+      min-height:480px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+    }
+    .nw-wood-title::after{
+      content:"WOOD";
+      position:absolute;
+      right:-20px;
+      bottom:-22px;
+      color:rgba(255,255,255,.12);
+      font-size:115px;
+      font-weight:950;
+      letter-spacing:-.08em;
+    }
+    .nw-wood-title small{font-size:10px;font-weight:900;letter-spacing:.15em}
+    .nw-wood-title h3{
+      position:relative;
+      z-index:2;
+      margin:auto 0 0;
+      font-size:clamp(39px,4.4vw,65px);
+      line-height:.96;
+      letter-spacing:-.06em;
+    }
+    .nw-wood-reasons{padding:0 34px}
+    .nw-reason{
+      display:grid;
+      grid-template-columns:58px 1fr 28px;
+      gap:18px;
+      align-items:center;
+      padding:23px 0;
+      border-bottom:1px solid var(--nw-line);
+      transition:padding .25s ease,background .25s ease;
+    }
+    .nw-reason:last-child{border-bottom:0}
+    .nw-reason:hover{padding-left:14px;background:#f2f1ed}
+    .nw-reason .num{color:var(--nw-orange);font-size:11px;font-weight:900;letter-spacing:.1em}
+    .nw-reason b{display:block;margin-bottom:5px;font-size:17px}
+    .nw-reason p{margin:0;color:var(--nw-gray);font-size:12px;line-height:1.65}
+    .nw-reason .arrow{color:var(--nw-orange);font-size:23px;text-align:right}
+
+    .nw-fusion-gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:13px;
+      margin-top:58px;
+    }
+    .nw-fusion-card{
+      min-height:310px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .nw-fusion-card .label{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:4;
+      padding:18px 19px;
+      background:linear-gradient(to top,rgba(0,0,0,.94),rgba(0,0,0,.08));
+    }
+    .nw-fusion-card .label span{
+      display:block;
+      margin-bottom:6px;
+      color:var(--nw-orange-2);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.13em;
+    }
+    .nw-fusion-card .label b{font-size:17px;letter-spacing:-.03em}
+
+    /* 04 PROCESS + FAQ */
+    .nw-guide{
+      background:var(--nw-paper-2);
+    }
+    .nw-guide-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+      gap:60px;
+      align-items:start;
+    }
+    .nw-process{
+      border-top:3px solid var(--nw-black);
+    }
+    .nw-process-step{
+      display:grid;
+      grid-template-columns:80px 1fr 30px;
+      gap:20px;
+      align-items:center;
+      padding:24px 0;
+      border-bottom:1px solid #c7c6c0;
+    }
+    .nw-process-step .num{color:var(--nw-orange);font-size:12px;font-weight:900;letter-spacing:.13em}
+    .nw-process-step b{display:block;margin-bottom:5px;font-size:18px}
+    .nw-process-step p{margin:0;color:var(--nw-gray);font-size:12px;line-height:1.6}
+    .nw-process-step .arrow{color:var(--nw-orange);font-size:23px;text-align:right}
+
+    .nw-faq{
+      border-top:3px solid var(--nw-black);
+    }
+    .nw-faq details{border-bottom:1px solid #c7c6c0}
+    .nw-faq summary{
+      list-style:none;
+      cursor:pointer;
+      display:grid;
+      grid-template-columns:54px 1fr 28px;
+      align-items:center;
+      padding:22px 0;
+      font-size:15px;
+      font-weight:850;
+    }
+    .nw-faq summary::-webkit-details-marker{display:none}
+    .nw-faq summary .q{color:var(--nw-orange);font-size:11px;font-weight:900;letter-spacing:.1em}
+    .nw-faq summary::after{content:"+";font-size:22px;text-align:right}
+    .nw-faq details[open] summary::after{content:"−"}
+    .nw-faq details p{
+      margin:0;
+      padding:0 20px 22px 54px;
+      color:var(--nw-gray);
+      font-size:13px;
+      line-height:1.75;
+    }
+    .nw-condition{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      border:1px solid var(--nw-black);
+      background:#fff;
+    }
+    .nw-condition>div{padding:25px 24px}
+    .nw-condition>div:first-child{border-right:1px solid var(--nw-black)}
+    .nw-condition span{display:block;color:var(--nw-orange);font-size:10px;font-weight:900;letter-spacing:.13em;margin-bottom:10px}
+    .nw-condition b{font-size:17px}
+    .nw-condition p{margin:7px 0 0;color:var(--nw-gray);font-size:12px;line-height:1.65}
+
+    /* 애니메이션 */
+    [data-reveal]{
+      opacity:0;
+      transform:translateY(34px);
+      transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1);
+    }
+    [data-reveal="left"]{transform:translateX(-46px)}
+    [data-reveal="right"]{transform:translateX(46px)}
+    [data-reveal].is-visible{opacity:1;transform:none}
+    .nw-scan{
+      position:absolute;
+      left:0;right:0;top:-2px;
+      z-index:5;
+      height:2px;
+      opacity:0;
+      background:linear-gradient(90deg,transparent,var(--nw-orange),transparent);
+    }
+    .is-visible .nw-scan{animation:nwScan 1.35s .2s ease both}
+    @keyframes nwScan{
+      0%{top:0;opacity:0}
+      12%{opacity:1}
+      88%{opacity:.85}
+      100%{top:100%;opacity:0}
+    }
+
+    @media(max-width:1180px){
+      .nw-head{grid-template-columns:1fr;gap:22px}
+      .nw-package-layout{grid-template-columns:1fr}
+      .nw-package-intro{min-height:500px}
+      .nw-product-main{min-height:440px}
+      .nw-machine-stage{grid-template-columns:1fr}
+      .nw-machine-copy{min-height:470px}
+      .nw-machine-info{grid-template-columns:1fr}
+      .nw-fusion-layout{grid-template-columns:1fr}
+      .nw-fusion-copy{min-height:500px}
+      .nw-fusion-main{min-height:560px}
+      .nw-app-grid{grid-template-columns:repeat(3,1fr)}
+      .nw-fusion-features{grid-template-columns:repeat(2,1fr)}
+      .nw-fusion-feature:nth-child(2){border-right:0}
+      .nw-fusion-feature:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.15)}
+      .nw-guide-grid{grid-template-columns:1fr}
+    }
+
+    @media(max-width:780px){
+      .nw-section{padding:70px 0}
+      .nw-head h2{font-size:43px}
+      .nw-package-intro{min-height:460px;padding:32px 24px}
+      .nw-product-main{grid-template-columns:1fr}
+      .nw-plus{height:58px;border:0;border-top:1px solid var(--nw-line);border-bottom:1px solid var(--nw-line)}
+      .nw-product-card + .nw-product-card{border-left:0}
+      .nw-product-img{min-height:270px}
+      .nw-package-benefits{grid-template-columns:1fr}
+      .nw-benefit:nth-child(n){border-right:0;border-bottom:1px solid var(--nw-line);min-height:160px}
+      .nw-benefit:last-child{border-bottom:0}
+      .nw-package-alert{grid-template-columns:1fr;gap:8px}
+      .nw-machine-copy{min-height:520px;padding:34px 24px}
+      .nw-machine-main{min-height:430px}
+      .nw-machine-stamp{width:95px;height:95px;right:18px;top:18px}
+      .nw-spec-row{grid-template-columns:115px 1fr}
+      .nw-spec-row dt,.nw-spec-row dd{padding:13px 11px;font-size:11px}
+      .nw-detail-grid{grid-template-columns:1fr}
+      .nw-detail-card:first-child{grid-column:auto}
+      .nw-app-grid{grid-template-columns:repeat(2,1fr)}
+      .nw-app-item{min-height:210px}
+      .nw-subhead{display:block}
+      .nw-subhead p{margin-top:9px;text-align:left}
+      .nw-fusion-main{min-height:430px}
+      .nw-fusion-copy{padding:34px 24px}
+      .nw-fusion-features{grid-template-columns:1fr}
+      .nw-fusion-feature:nth-child(n){border-right:0;border-bottom:1px solid rgba(255,255,255,.15);min-height:235px}
+      .nw-fusion-feature:last-child{border-bottom:0}
+      .nw-wood-fit{grid-template-columns:1fr}
+      .nw-wood-title{min-height:300px}
+      .nw-wood-reasons{padding:0 20px}
+      .nw-reason{grid-template-columns:42px 1fr 22px}
+      .nw-fusion-gallery{grid-template-columns:1fr}
+      .nw-condition{grid-template-columns:1fr}
+      .nw-condition>div:first-child{border-right:0;border-bottom:1px solid var(--nw-black)}
+      .nw-process-step{grid-template-columns:52px 1fr 22px}
+      .nw-faq summary{grid-template-columns:48px 1fr 24px;font-size:14px}
+      .nw-faq details p{padding-left:48px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+      [data-reveal]{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <!--
+    넥스트우드 CNC 공동구매 랜딩페이지 중간 콘텐츠 전용
+    최상단 메인 비주얼과 최하단 대형 신청 영역은 제외했습니다.
+    HTML 가장 아래 NW_GROUPBUY_IMAGES에 이미지 URL만 입력하면 됩니다.
+  -->
+
+  <main class="nw-gb">
+    <!-- 01. 공동구매 패키지 -->
+    <section class="nw-section nw-package">
+      <div class="nw-wrap">
+        <div class="nw-eyebrow">01 / GROUP BUY PACKAGE</div>
+        <div class="nw-head" data-reveal>
+          <h2>CNC와 Fusion을<br>한 번에 도입합니다</h2>
+          <p>장비만 구매하고 활용 방법을 다시 찾는 방식이 아니라, CNC 라우터와 Fusion 정식 라이선스, 설치·세팅, 실무 교육, 기술지원까지 실제 가공에 필요한 요소를 하나의 패키지로 구성했습니다.</p>
+        </div>
+
+        <div class="nw-package-layout" data-reveal>
+          <div class="nw-package-intro">
+            <div>
+              <div class="nw-package-limit">6명 한정 공동구매 프로젝트</div>
+              <h3 class="nw-package-title">가장 좋은 장비와<br>가장 현실적인 시작 조건</h3>
+            </div>
+            <div class="nw-package-copy">
+              <p>6명이 함께 구매해 장비 도입 부담을 낮추고, Fusion과 교육·지원까지 포함해 도입 직후 바로 제작을 시작할 수 있도록 구성했습니다.</p>
+              <div class="nw-price-label">1인 공동구매가</div>
+              <div class="nw-price">2,800<span>만원</span></div>
+              <div class="nw-price-note">Fusion 1년 정식 라이선스 포함<br>최소 6명 모집 완료 시 공동구매 진행</div>
+            </div>
+          </div>
+
+          <div class="nw-product-side">
+            <div class="nw-product-main">
+              <article class="nw-product-card">
+                <div class="nw-product-img nw-img" data-img="package_cnc">
+                  <span class="nw-placeholder">CNC 라우터 대표 이미지<br>NW_GROUPBUY_IMAGES.package_cnc</span>
+                  <span class="nw-scan"></span>
+                </div>
+                <div class="nw-product-meta">
+                  <div><small>HARDWARE</small><strong>3축 CNC 라우터</strong></div>
+                  <span>1,300 × 2,500 mm<br>ATC CNC ROUTER</span>
+                </div>
+              </article>
+
+              <div class="nw-plus" aria-label="더하기"></div>
+
+              <article class="nw-product-card">
+                <div class="nw-product-img nw-img" data-img="package_fusion">
+                  <span class="nw-placeholder">Fusion 설계·CAM 화면 이미지<br>NW_GROUPBUY_IMAGES.package_fusion</span>
+                  <span class="nw-scan"></span>
+                </div>
+                <div class="nw-product-meta">
+                  <div><small>SOFTWARE</small><strong>Autodesk Fusion</strong></div>
+                  <span>1년 정식 라이선스<br>CAD + CAM</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="nw-package-benefits">
+              <article class="nw-benefit"><div class="num">01 / SPECIAL PRICE</div><h3>6명 한정 특별가</h3><p>공동구매 참여자에 한해 1인 2,800만원으로 제공합니다.</p></article>
+              <article class="nw-benefit"><div class="num">02 / LICENSE</div><h3>Fusion 1년 정식 라이선스</h3><p>설계와 CAM 가공 경로 생성에 필요한 정식 라이선스를 제공합니다. 약 1,120만원 상당 구성입니다.</p></article>
+              <article class="nw-benefit"><div class="num">03 / TRAINING</div><h3>실무 교육 2회 무료</h3><p>회당 30만원 상당의 설계·CAM·CNC 실무 교육을 총 2회 제공합니다.</p></article>
+              <article class="nw-benefit"><div class="num">04 / INSTALLATION</div><h3>설치 및 초기 세팅 지원</h3><p>전문 엔지니어가 현장 설치, 초기 세팅과 기본 사용 교육을 지원합니다.</p></article>
+              <article class="nw-benefit"><div class="num">05 / SUPPORT</div><h3>1년 무상 기술지원</h3><p>장비 A/S와 운용 중 발생하는 기본 기술 문의를 1년간 지원합니다.</p></article>
+              <article class="nw-benefit"><div class="num">06 / COMMUNITY</div><h3>구매자 전용 커뮤니티</h3><p>가공 데이터와 활용 사례, 공구 설정 정보를 구매자끼리 공유할 수 있습니다.</p></article>
+            </div>
+          </div>
+        </div>
+
+        <div class="nw-package-alert" data-reveal>
+          <b>최소 6명 모집 시 진행</b>
+          <span>6명 미만일 경우 다음 공동구매 차수로 이월되며, 정원 마감 시 조기 종료될 수 있습니다.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. 장비 소개 -->
+    <section class="nw-section nw-machine">
+      <div class="nw-wrap">
+        <div class="nw-eyebrow">02 / CNC ROUTER</div>
+        <div class="nw-head" data-reveal>
+          <h2>3축 CNC 라우터<br>장비 소개</h2>
+          <p>대형 판재의 절단, 홈, 포켓, 드릴링, 3D 조각을 하나의 장비에서 처리할 수 있도록 구성된 산업용 CNC 라우터입니다. 가구·도어·인테리어·목재 부품 제작 등 반복 생산과 주문 제작에 모두 대응합니다.</p>
+        </div>
+
+        <div class="nw-machine-stage" data-reveal>
+          <div class="nw-machine-copy">
+            <div>
+              <div class="nw-index">SMARTWARE CNC ROUTER</div>
+              <h3>대형 판재부터<br>정밀 조각까지</h3>
+              <p>1,300 × 2,500 mm 가공 영역과 9.0 kW ATC 스핀들, 진공 테이블을 기반으로 다양한 목재와 판재를 안정적으로 가공합니다.</p>
+            </div>
+            <div class="nw-machine-points">
+              <div class="nw-machine-point"><span>01</span><div><b>ATC 자동 공구 교환</b><p>여러 공구가 필요한 복합 공정을 끊김 없이 연속 가공합니다.</p></div></div>
+              <div class="nw-machine-point"><span>02</span><div><b>진공 테이블</b><p>대형 판재를 넓게 흡착해 가공 중 소재 이동과 흔들림을 줄입니다.</p></div></div>
+              <div class="nw-machine-point"><span>03</span><div><b>정밀 서보 구동</b><p>빠른 이송과 반복 가공에서도 안정적인 위치 정밀도를 확보합니다.</p></div></div>
+            </div>
+          </div>
+
+          <div class="nw-machine-main nw-img" data-img="machine_main">
+            <span class="nw-placeholder">3축 CNC 라우터 장비 전체 이미지<br>NW_GROUPBUY_IMAGES.machine_main</span>
+            <div class="nw-machine-stamp">SMARTWARE<br>BEST SELLER<br>CNC-router<br>1325</div>
+            <div class="nw-machine-caption"><strong>3축 CNC 라우터</strong><span>대형 판재 · 자동 공구 교환 · 목재 정밀 가공</span></div>
+            <span class="nw-scan"></span>
+          </div>
+        </div>
+
+        <div class="nw-machine-info">
+          <div data-reveal="left">
+            <div class="nw-spec-head"><h3>주요 사양</h3><span>TECHNICAL SPECIFICATION</span></div>
+            <dl class="nw-spec-table">
+              <div class="nw-spec-row"><dt>가공 영역</dt><dd>1,300 × 2,500 × 200 mm</dd></div>
+              <div class="nw-spec-row"><dt>테이블</dt><dd>진공 테이블</dd></div>
+              <div class="nw-spec-row"><dt>주축</dt><dd>9.0 kW ATC 스핀들 · 자동 공구 교환</dd></div>
+              <div class="nw-spec-row"><dt>최대 이송 속도</dt><dd>60 m/min</dd></div>
+              <div class="nw-spec-row"><dt>최대 가공 속도</dt><dd>20 m/min</dd></div>
+              <div class="nw-spec-row"><dt>반복 정밀도</dt><dd>±0.03 mm</dd></div>
+              <div class="nw-spec-row"><dt>구동 방식</dt><dd>서보 모터 · 볼스크류</dd></div>
+              <div class="nw-spec-row"><dt>지원 파일 형식</dt><dd>G-Code, HPGL, PLT, DXF 등</dd></div>
+              <div class="nw-spec-row"><dt>지원 소재</dt><dd>원목, MDF, 합판, 아크릴, ABS, PVC 등</dd></div>
+            </dl>
+          </div>
+
+          <div class="nw-detail-grid" data-reveal="right">
+            <article class="nw-detail-card nw-img" data-img="machine_detail_01"><span class="nw-placeholder">장비 전체 또는 가공 테이블 이미지<br>machine_detail_01</span><div class="nw-detail-label">대형 진공 테이블</div></article>
+            <article class="nw-detail-card nw-img" data-img="machine_detail_02"><span class="nw-placeholder">ATC 공구 교환 이미지<br>machine_detail_02</span><div class="nw-detail-label">ATC 자동 공구 교환</div></article>
+            <article class="nw-detail-card nw-img" data-img="machine_detail_03"><span class="nw-placeholder">스핀들·가공부 클로즈업<br>machine_detail_03</span><div class="nw-detail-label">9.0 kW 스핀들</div></article>
+          </div>
+        </div>
+
+        <div class="nw-applications" data-reveal>
+          <div class="nw-subhead"><h3>다양한 가공 예시</h3><p>실제 제작 제품과 소재별 가공 결과 이미지를 넣어주세요.</p></div>
+          <div class="nw-app-grid">
+            <article class="nw-app-item nw-img" data-img="application_01"><span class="nw-placeholder">3D 부조 이미지<br>application_01</span><div class="nw-app-name">3D 부조 · 조각</div></article>
+            <article class="nw-app-item nw-img" data-img="application_02"><span class="nw-placeholder">도어·가구 패널 이미지<br>application_02</span><div class="nw-app-name">도어 · 가구 패널</div></article>
+            <article class="nw-app-item nw-img" data-img="application_03"><span class="nw-placeholder">사인·문자 이미지<br>application_03</span><div class="nw-app-name">사인 · 문자</div></article>
+            <article class="nw-app-item nw-img" data-img="application_04"><span class="nw-placeholder">격자·인테리어 패널 이미지<br>application_04</span><div class="nw-app-name">인테리어 패널</div></article>
+            <article class="nw-app-item nw-img" data-img="application_05"><span class="nw-placeholder">목재 몰딩·부품 이미지<br>application_05</span><div class="nw-app-name">몰딩 · 목재 부품</div></article>
+            <article class="nw-app-item nw-img" data-img="application_06"><span class="nw-placeholder">아크릴 가공품 이미지<br>application_06</span><div class="nw-app-name">아크릴 · 비철 소재</div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. Fusion 소개 -->
+    <section class="nw-section nw-fusion nw-dark">
+      <div class="nw-wrap">
+        <div class="nw-eyebrow">03 / AUTODESK FUSION</div>
+        <div class="nw-head" data-reveal>
+          <h2>설계부터 CAM까지<br>하나의 프로그램으로</h2>
+          <p>Fusion은 2D 스케치와 3D 모델링, CAM 공구 경로 생성, 시뮬레이션, G-code 출력까지 하나의 프로젝트 안에서 연결합니다. 설계 수정과 가공 데이터 변경이 잦은 목공 제작 환경에 특히 효율적입니다.</p>
+        </div>
+
+        <div class="nw-fusion-layout" data-reveal>
+          <div class="nw-fusion-main nw-img" data-img="fusion_main">
+            <span class="nw-placeholder">Fusion 설계·CAM 메인 화면 이미지<br>NW_GROUPBUY_IMAGES.fusion_main</span>
+            <div class="nw-fusion-screen-copy"><span>CAD + CAM IN ONE PLATFORM</span><strong>모델 수정부터 NC 코드 출력까지<br>하나의 데이터로 연결</strong></div>
+            <span class="nw-scan"></span>
+          </div>
+          <div class="nw-fusion-copy">
+            <div>
+              <div class="nw-index">1 YEAR OFFICIAL LICENSE INCLUDED</div>
+              <h3>Fusion 1년<br>정식 라이선스 포함</h3>
+              <p>설계 프로그램과 별도의 CAM 프로그램을 따로 준비하지 않고, 하나의 환경에서 목재 제품을 설계하고 CNC 가공 데이터를 생성할 수 있습니다.</p>
+            </div>
+            <div class="nw-fusion-summary">
+              <div class="nw-fusion-row"><b>3D 설계</b><span>2D 스케치, 파라메트릭 모델링, 가구·부품 설계</span></div>
+              <div class="nw-fusion-row"><b>CAM 경로</b><span>2D Contour, Pocket, Trace, Drilling, 3D 가공</span></div>
+              <div class="nw-fusion-row"><b>시뮬레이션</b><span>공구 이동과 소재 제거 과정을 가공 전에 확인</span></div>
+              <div class="nw-fusion-row"><b>G-code</b><span>장비 제어기에 맞는 포스트 프로세싱과 코드 출력</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nw-fusion-features">
+          <article class="nw-fusion-feature" data-reveal><div class="num">01 / PARAMETRIC DESIGN</div><h4>치수 기반 3D 설계</h4><p>가구 폭, 높이, 목재 두께처럼 자주 바뀌는 치수를 변수 중심으로 관리해 주문 제작과 파생 모델 수정이 쉽습니다.</p></article>
+          <article class="nw-fusion-feature" data-reveal><div class="num">02 / 2D & 3D CAM</div><h4>다양한 가공 경로</h4><p>윤곽, 포켓, 홀, 홈 가공부터 곡면과 3D 형상 가공까지 제품에 맞는 공구 경로를 생성할 수 있습니다.</p></article>
+          <article class="nw-fusion-feature" data-reveal><div class="num">03 / SIMULATION</div><h4>가공 전 검증</h4><p>소재 제거 과정과 공구 움직임을 시뮬레이션해 잘못된 원점과 과도한 절입, 충돌 가능성을 미리 확인합니다.</p></article>
+          <article class="nw-fusion-feature" data-reveal><div class="num">04 / TOOL LIBRARY</div><h4>공구 조건 관리</h4><p>엔드밀 직경, 회전수, 이송 속도, 스텝다운과 스텝오버를 공구 라이브러리로 관리하고 반복 활용합니다.</p></article>
+        </div>
+
+        <div class="nw-wood-fit" data-reveal>
+          <div class="nw-wood-title"><small>WHY FUSION FOR WOODWORKING</small><h3>목공에<br>제격인 이유</h3></div>
+          <div class="nw-wood-reasons">
+            <div class="nw-reason"><div class="num">01</div><div><b>가구·부품 단위 설계에 적합</b><p>수납장, 테이블, 선반처럼 여러 부품이 결합되는 제품을 구성 요소별로 설계하고 관리할 수 있습니다.</p></div><div class="arrow">→</div></div>
+            <div class="nw-reason"><div class="num">02</div><div><b>설계 변경과 CAM 수정이 연결</b><p>제품 치수를 바꾸면 변경된 모델을 기준으로 가공 경로를 다시 검토하고 재생성할 수 있습니다.</p></div><div class="arrow">→</div></div>
+            <div class="nw-reason"><div class="num">03</div><div><b>판재 가공과 3D 형상을 함께 처리</b><p>평면 부품 절단과 홈·포켓 가공은 물론 곡면, 부조, 몰딩 같은 입체 형상도 하나의 프로그램에서 다룹니다.</p></div><div class="arrow">→</div></div>
+            <div class="nw-reason"><div class="num">04</div><div><b>실제 목재와 공구 조건 반영</b><p>원목, MDF, 합판 등 소재와 공구에 맞춰 RPM, 이송, 절입량을 설정하고 결과를 비교할 수 있습니다.</p></div><div class="arrow">→</div></div>
+            <div class="nw-reason"><div class="num">05</div><div><b>시제품부터 반복 생산까지 확장</b><p>검증한 설계와 공구 경로를 보관하고 재사용해 다품종 소량 제작과 반복 생산에 모두 대응합니다.</p></div><div class="arrow">→</div></div>
+          </div>
+        </div>
+
+        <div class="nw-fusion-gallery">
+          <article class="nw-fusion-card nw-img" data-img="fusion_2d" data-reveal><span class="nw-placeholder">2D CAM 화면 이미지<br>fusion_2d</span><div class="label"><span>2D CAM</span><b>윤곽 · 포켓 · 홈 · 드릴링</b></div></article>
+          <article class="nw-fusion-card nw-img" data-img="fusion_3d" data-reveal><span class="nw-placeholder">3D CAM 화면 이미지<br>fusion_3d</span><div class="label"><span>3D CAM</span><b>곡면 · 부조 · 입체 형상 가공</b></div></article>
+          <article class="nw-fusion-card nw-img" data-img="fusion_simulation" data-reveal><span class="nw-placeholder">가공 시뮬레이션 이미지<br>fusion_simulation</span><div class="label"><span>SIMULATION</span><b>공구 경로와 소재 제거 검증</b></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. 진행 절차 및 FAQ -->
+    <section class="nw-section nw-guide">
+      <div class="nw-wrap">
+        <div class="nw-eyebrow">04 / PROCESS & FAQ</div>
+        <div class="nw-head" data-reveal>
+          <h2>신청부터 설치까지<br>진행 절차</h2>
+          <p>공동구매 신청 후 6명 모집이 완료되면 계약과 장비 제작, 납품, 설치·교육 순서로 진행됩니다. 실제 설치 환경과 일정은 신청자별로 확인해 안내합니다.</p>
+        </div>
+
+        <div class="nw-guide-grid">
+          <div data-reveal="left">
+            <div class="nw-subhead"><h3>공동구매 진행 절차</h3><p>신청 후 담당자가 개별 연락드립니다.</p></div>
+            <div class="nw-process">
+              <div class="nw-process-step"><div class="num">01</div><div><b>공동구매 신청 접수</b><p>기본 정보와 설치 희망 지역을 접수합니다.</p></div><div class="arrow">→</div></div>
+              <div class="nw-process-step"><div class="num">02</div><div><b>6명 모집 완료</b><p>최소 모집 인원이 충족되면 진행 일정을 확정합니다.</p></div><div class="arrow">→</div></div>
+              <div class="nw-process-step"><div class="num">03</div><div><b>계약 및 견적 확정</b><p>세부 구성, 결제 조건과 현장 준비 사항을 확인합니다.</p></div><div class="arrow">→</div></div>
+              <div class="nw-process-step"><div class="num">04</div><div><b>장비 제작 및 납품</b><p>계약 조건에 따라 장비 제작과 국내 납품을 진행합니다.</p></div><div class="arrow">→</div></div>
+              <div class="nw-process-step"><div class="num">05</div><div><b>설치 및 실무 교육</b><p>전문 엔지니어가 설치·세팅하고 교육을 진행합니다.</p></div><div class="arrow">→</div></div>
+              <div class="nw-process-step"><div class="num">06</div><div><b>사후 기술지원</b><p>1년 무상 A/S와 장비·CAM 운용 문의를 지원합니다.</p></div><div class="arrow">→</div></div>
+            </div>
+          </div>
+
+          <div data-reveal="right">
+            <div class="nw-subhead"><h3>자주 묻는 질문</h3><p>공동구매 전 확인 사항</p></div>
+            <div class="nw-faq">
+              <details><summary><span class="q">Q01</span><span>6명이 모집되지 않으면 어떻게 되나요?</span></summary><p>최소 모집 인원에 미달하면 다음 공동구매 차수로 이월됩니다. 진행 여부와 일정은 신청자에게 개별 안내합니다.</p></details>
+              <details><summary><span class="q">Q02</span><span>설치는 어떻게 진행되나요?</span></summary><p>전문 엔지니어가 현장을 방문해 장비 설치, 초기 세팅과 기본 사용 교육을 진행합니다.</p></details>
+              <details><summary><span class="q">Q03</span><span>교육은 어떤 내용인가요?</span></summary><p>Fusion과 Carveco 기본 활용부터 CAM 데이터 생성, CNC 장비 운용까지 총 2회의 실무 교육으로 진행합니다.</p></details>
+              <details><summary><span class="q">Q04</span><span>결제 방식은 어떻게 되나요?</span></summary><p>계약금과 잔금으로 나누어 진행하며, 세부 결제 일정은 계약 시 개별 안내합니다.</p></details>
+              <details><summary><span class="q">Q05</span><span>설치 전에 무엇을 준비해야 하나요?</span></summary><p>장비 반입 동선, 설치 면적, 전원, 에어와 집진 설비 등 현장 조건을 사전에 확인해야 합니다.</p></details>
+            </div>
+
+            <div class="nw-condition">
+              <div><span>GROUP BUY PRICE</span><b>1인 2,800만원</b><p>CNC 라우터, Fusion 1년 라이선스, 설치·교육·기술지원 포함</p></div>
+              <div><span>RECRUITMENT</span><b>6명 모집 완료 시 진행</b><p>정원 마감 시 조기 종료될 수 있습니다.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ============================================================
+       이미지 URL 입력 영역
+       따옴표 안에 실제 이미지 링크를 넣으면 해당 영역에 자동 적용됩니다.
+    ============================================================ */
+    const NW_GROUPBUY_IMAGES = {
+      package_cnc: 'https://i.imgur.com/fDXnJEG.jpeg',
+      package_fusion: 'https://i.imgur.com/qE2Pd6z.jpeg',
+
+      machine_main: 'https://i.imgur.com/fDXnJEG.jpeg',
+      machine_detail_01: 'https://i.imgur.com/T2OCIqM.jpeg',
+      machine_detail_02: 'https://i.imgur.com/QBdJJJ9.jpeg',
+      machine_detail_03: 'https://i.imgur.com/7zXvsJQ.jpeg',
+
+      application_01: 'https://i.imgur.com/iO4i81S.png',
+      application_02: 'https://i.imgur.com/rBJNqGk.png',
+      application_03: 'https://i.imgur.com/K52kGct.png',
+      application_04: 'https://i.imgur.com/Psszg97.png',
+      application_05: 'https://i.imgur.com/pOO9NAR.png',
+      application_06: 'https://i.imgur.com/u0rViwc.png',
+
+      fusion_main: 'https://i.imgur.com/iO4i81S.png',
+      fusion_2d: 'https://i.imgur.com/C9wX04R.png',
+      fusion_3d: 'https://i.imgur.com/2FjvF9H.png',
+      fusion_simulation: 'https://i.imgur.com/sMDqr8X.png'
+    };
+
+    document.querySelectorAll('[data-img]').forEach((slot) => {
+      const key = slot.dataset.img;
+      const url = NW_GROUPBUY_IMAGES[key];
+      if (url && url.trim()) {
+        slot.style.setProperty('--nw-image', `url("${url.trim()}")`);
+        slot.classList.add('has-image');
+      }
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -50px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+  </script>
+============================================================
+FUSION-CNC 식스샵 IFRAME 자동 높이 통합 설치 코드
+============================================================
+
+중요:
+서로 다른 도메인(GitHub Pages / 식스샵) 사이의 iframe 높이를 자동으로
+맞추려면 아래 A와 B 코드를 각각 한 번씩 넣어야 합니다.
+한쪽 코드만 넣으면 자동 높이 기능이 작동하지 않습니다.
+
+
+============================================================
+A. GitHub Pages의 fusion-cnc/index.html
+   </body> 바로 위에 붙여넣기
+============================================================
+
+<style id="yc-iframe-page-reset">
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+  }
+</style>
+
+<script>
+(() => {
+  const MESSAGE_TYPE = 'YC_FUSION_CNC_IFRAME_HEIGHT';
+
+  let lastHeight = 0;
+  let resizeQueued = false;
+
+  function measurePageHeight() {
+    const html = document.documentElement;
+    const body = document.body;
+
+    return Math.ceil(Math.max(
+      html ? html.scrollHeight : 0,
+      html ? html.offsetHeight : 0,
+      html ? html.clientHeight : 0,
+      html ? html.getBoundingClientRect().height : 0,
+      body ? body.scrollHeight : 0,
+      body ? body.offsetHeight : 0,
+      body ? body.clientHeight : 0,
+      body ? body.getBoundingClientRect().height : 0
+    ));
+  }
+
+  function sendPageHeight(force = false) {
+    if (resizeQueued) return;
+
+    resizeQueued = true;
+
+    requestAnimationFrame(() => {
+      resizeQueued = false;
+
+      const height = measurePageHeight();
+
+      if (!height) return;
+      if (!force && Math.abs(height - lastHeight) < 2) return;
+
+      lastHeight = height;
+
+      window.parent.postMessage({
+        type: MESSAGE_TYPE,
+        path: window.location.pathname,
+        height: height
+      }, '*');
+    });
+  }
+
+  function startAutoHeight() {
+    sendPageHeight(true);
+
+    if ('ResizeObserver' in window) {
+      const resizeObserver = new ResizeObserver(() => {
+        sendPageHeight();
+      });
+
+      resizeObserver.observe(document.documentElement);
+
+      if (document.body) {
+        resizeObserver.observe(document.body);
+      }
+    }
+
+    if ('MutationObserver' in window && document.body) {
+      const mutationObserver = new MutationObserver(() => {
+        sendPageHeight();
+      });
+
+      mutationObserver.observe(document.body, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        characterData: true
+      });
+    }
+
+    document.querySelectorAll('img').forEach((image) => {
+      if (!image.complete) {
+        image.addEventListener(
+          'load',
+          () => sendPageHeight(true),
+          { once: true }
+        );
+
+        image.addEventListener(
+          'error',
+          () => sendPageHeight(true),
+          { once: true }
+        );
+      }
+    });
+
+    document.querySelectorAll('video').forEach((video) => {
+      video.addEventListener(
+        'loadedmetadata',
+        () => sendPageHeight(true),
+        { once: true }
+      );
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        sendPageHeight(true);
+      });
+    }
+
+    window.addEventListener(
+      'load',
+      () => sendPageHeight(true),
+      { once: true }
+    );
+
+    window.addEventListener(
+      'resize',
+      () => sendPageHeight(true),
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'orientationchange',
+      () => {
+        setTimeout(() => sendPageHeight(true), 350);
+      },
+      { passive: true }
+    );
+
+    [100, 300, 700, 1200, 2000, 3500].forEach((delay) => {
+      setTimeout(() => sendPageHeight(true), delay);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      startAutoHeight,
+      { once: true }
+    );
+  } else {
+    startAutoHeight();
+  }
+})();
+</script>
+
+
+============================================================
+B. 식스샵 블로그 사용자 편집 섹션
+   기존 iframe 코드를 모두 지우고 아래 코드로 교체
+============================================================
+
+<style>
+  /* 식스샵 게시글 제목·카테고리·날짜·공유 영역 숨김 */
+  [class*="PostT01_wrapper"] [class*="post-header"],
+  [class*="PostT01_wrapper"] [class*="Post_header"],
+  [class*="PostT01_wrapper"] [class*="title-panel"],
+  [class*="Post_wrapper"] [class*="post-header"],
+  [class*="Post_wrapper"] [class*="Post_header"],
+  [class*="Post_wrapper"] [class*="title-panel"],
+  [class*="Post_wrapper"] [class*="AuthorDateTime"],
+  [class*="Post_wrapper"] [class*="Share"],
+  [class*="Post_wrapper"] [class*="share"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* 식스샵 게시글 본문 폭과 기본 여백 해제 */
+  [class*="PostT01_post-contents-wrapper"],
+  [class*="Post_post-contents-wrapper"],
+  [class*="Post_post-panel"],
+  [class*="post-contents"],
+  [class*="contents-wrapper"] {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #fusion-cnc-fullbleed,
+  #fusion-cnc-fullbleed * {
+    box-sizing: border-box;
+  }
+
+  #fusion-cnc-fullbleed {
+    position: relative !important;
+    left: 50% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 0 0 -50vw !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    line-height: 0 !important;
+    background: #ffffff !important;
+  }
+
+  #fusion-cnc-auto-frame {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 1600px;
+    min-height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+  }
+</style>
+
+<div
+  id="fusion-cnc-fullbleed"
+  style="
+    position:relative!important;
+    left:50%!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    margin:0 0 0 -50vw!important;
+    padding:0!important;
+    overflow:hidden!important;
+    line-height:0!important;
+    background:#ffffff!important;
+  "
+>
+  <iframe
+    id="fusion-cnc-auto-frame"
+    src="https://ycgroupcwsong-cmd.github.io/fusion-cnc/"
+    title="Fusion CNC 교육"
+    width="100%"
+    height="1600"
+    scrolling="no"
+    loading="eager"
+    allowfullscreen
+    style="
+      display:block!important;
+      width:100%!important;
+      max-width:none!important;
+      height:1600px;
+      min-height:100vh;
+      margin:0!important;
+      padding:0!important;
+      border:0!important;
+      overflow:hidden!important;
+      background:#ffffff!important;
+    "
+  ></iframe>
+</div>
+
+<script>
+(() => {
+  const frame = document.getElementById('fusion-cnc-auto-frame');
+
+  if (!frame) return;
+
+  const expectedUrl = new URL(frame.src, window.location.href);
+  const MESSAGE_TYPE = 'YC_FUSION_CNC_IFRAME_HEIGHT';
+
+  function applyFrameHeight(value) {
+    const measuredHeight = Math.ceil(Number(value));
+
+    if (!Number.isFinite(measuredHeight)) return;
+    if (measuredHeight < 300 || measuredHeight > 60000) return;
+
+    const finalHeight = measuredHeight + 2;
+
+    frame.style.setProperty(
+      'height',
+      finalHeight + 'px',
+      'important'
+    );
+
+    frame.style.setProperty(
+      'min-height',
+      finalHeight + 'px',
+      'important'
+    );
+
+    frame.setAttribute(
+      'height',
+      String(finalHeight)
+    );
+  }
+
+  window.addEventListener('message', (event) => {
+    if (event.origin !== expectedUrl.origin) return;
+
+    const data = event.data;
+
+    if (!data || data.type !== MESSAGE_TYPE) return;
+
+    if (
+      data.path &&
+      data.path !== expectedUrl.pathname
+    ) {
+      return;
+    }
+
+    applyFrameHeight(data.height);
+  });
+
+  function hideSixshopHeader() {
+    const selectors = [
+      '[class*="post-header"]',
+      '[class*="Post_header"]',
+      '[class*="title-panel"]',
+      '[class*="AuthorDateTime"]',
+      '[class*="Share"]',
+      '[class*="share"]'
+    ];
+
+    document
+      .querySelectorAll(selectors.join(','))
+      .forEach((element) => {
+        if (
+          element === frame ||
+          element.contains(frame) ||
+          frame.contains(element)
+        ) {
+          return;
+        }
+
+        element.style.setProperty(
+          'display',
+          'none',
+          'important'
+        );
+      });
+
+    document
+      .querySelectorAll('h1,h2,h3,h4,p,span,a,button')
+      .forEach((element) => {
+        if (
+          element === frame ||
+          element.contains(frame) ||
+          frame.contains(element)
+        ) {
+          return;
+        }
+
+        if (element.children.length > 0) return;
+
+        const text = (element.textContent || '')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        const isShare = text === '공유하기';
+
+        const isFusionCategory =
+          /^(디지털\s*목공\s*[-–—·:]?\s*)?(fusion|퓨전)(\s*360)?(\s*[-–—·:]?\s*(cnc|교육|클래스))?[-–—]?$/
+            .test(text.toLowerCase());
+
+        if (!isShare && !isFusionCategory) return;
+
+        const target =
+          element.closest(
+            '[class*="header"],' +
+            '[class*="title"],' +
+            '[class*="share"],' +
+            '[class*="panel"]'
+          ) || element;
+
+        if (
+          target.contains(frame) ||
+          frame.contains(target)
+        ) {
+          return;
+        }
+
+        target.style.setProperty(
+          'display',
+          'none',
+          'important'
+        );
+      });
+  }
+
+  hideSixshopHeader();
+
+  if ('MutationObserver' in window) {
+    const headerObserver =
+      new MutationObserver(hideSixshopHeader);
+
+    headerObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    setTimeout(() => {
+      headerObserver.disconnect();
+    }, 12000);
+  }
+
+  [300, 900, 2000, 4000].forEach((delay) => {
+    setTimeout(hideSixshopHeader, delay);
+  });
+})();
+</script>
+
+</body>
+</html>
